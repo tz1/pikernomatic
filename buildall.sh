@@ -1,5 +1,5 @@
 #!/bin/sh
-source setvars.sh
+source ./setvars.sh
 
 export ARCH=arm
 export CROSS_COMPILE=$CCPREFIX

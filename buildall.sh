@@ -10,6 +10,7 @@ make oldconfig
 make -j 5
 make modules_install
 cp arch/arm/boot/Image $BUILDOUT/boot/newkernl.img
+cp System.map $BUILDOUT/boot/newkernl.System.map
 
 # Build the auxillary modules
 make KDIR=$KERNEL_SRC -C $BASEDIR/mcp2515async install

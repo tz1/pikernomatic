@@ -3,6 +3,11 @@ pikernomatic
 
 Series of scripts (and maybe makefiles, etc) to make it easy to build kernels for the raspi
 
+QUICKSTART:  Builds for current raspian distribution kernel (some kernel symbols may change).
+Adds spi-dma, CAN for mcp2515, and Adafruilt PiTFT (stmpe-ts built but doesn't work, nor the reset)
+Just do ./setupget.sh and wait for the downloads to complete (several in parallel).
+Then do ./buildall.sh and check the raspibuild/buildout directory for the replacements.
+
 setupget.sh creates the build directory and fetches the archives, and does a bit of setup.  
 Meant to be executed only once.
 

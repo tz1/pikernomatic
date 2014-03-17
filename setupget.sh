@@ -35,5 +35,6 @@ if [ x != x$HASH ]; then
     git checkout $HASH
 fi
 
+cd $KERNEL_SRC
 cp $BASEDIR/../config .config
 patch -p1 <../../moregpioirq.patch

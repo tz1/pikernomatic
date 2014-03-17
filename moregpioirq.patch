@@ -1,0 +1,24 @@
+diff -Bwru linux/arch/arm/mach-bcm2708/include/mach/gpio.h patched/arch/arm/mach-bcm2708/include/mach/gpio.h
+--- linux/arch/arm/mach-bcm2708/include/mach/gpio.h	2014-03-16 19:10:09.548950185 -0700
++++ patched/arch/arm/mach-bcm2708/include/mach/gpio.h	2014-03-16 19:11:42.735238261 -0700
+@@ -9,7 +9,7 @@
+ #ifndef __ASM_ARCH_GPIO_H
+ #define __ASM_ARCH_GPIO_H
+ 
+-#define ARCH_NR_GPIOS 54 // number of gpio lines
++#define ARCH_NR_GPIOS 54+100 // number of gpio lines
+ 
+ #define gpio_to_irq(x)	((x) + GPIO_IRQ_START)
+ #define irq_to_gpio(x)	((x) - GPIO_IRQ_START)
+diff -Bwru linux/arch/arm/mach-bcm2708/include/mach/irqs.h patched/arch/arm/mach-bcm2708/include/mach/irqs.h
+--- linux/arch/arm/mach-bcm2708/include/mach/irqs.h	2014-03-16 19:08:47.789451712 -0700
++++ patched/arch/arm/mach-bcm2708/include/mach/irqs.h	2014-03-16 19:11:54.585020529 -0700
+@@ -193,7 +193,7 @@
+ #define FIQ_IRQS              (64 + 21)
+ #define GPIO_IRQS	      (32*5)
+ 
+-#define NR_IRQS		      HARD_IRQS+FIQ_IRQS+GPIO_IRQS
++#define NR_IRQS		      HARD_IRQS+FIQ_IRQS+GPIO_IRQS+128
+ 
+ 
+ #endif /* _BCM2708_IRQS_H_ */

@@ -36,3 +36,4 @@ if [ x != x$HASH ]; then
 fi
 
 cp $BASEDIR/../config .config
+patch -p1 <../../moregpioirq.patch

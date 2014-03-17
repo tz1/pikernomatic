@@ -13,9 +13,12 @@ cp arch/arm/boot/Image $BUILDOUT/boot/newkernl.img
 cp System.map $BUILDOUT/boot/newkernl.System.map
 
 # Build the auxillary modules
-make KDIR=$KERNEL_SRC -C $BASEDIR/mcp2515async install
+if [ x != x$CAN ] ; then
+    make KDIR=$KERNEL_SRC -C $BASEDIR/mcp2515async install
+fi
 make KDIR=$KERNEL_SRC -C $BASEDIR/spi-config install
-
-make KDIR=$KERNEL_SRC -C $BASEDIR/spi-bcm2708 install
-#replaces
-rm $BUILDOUT/lib/modules/3.10.25+/kernel/drivers/spi/spi-bcm2708.ko
+if [ x != x$DMASPI ] ; then
+#replace
+    find $BUILDOUT/lib/modules -name spi-bcm2708.ko -exec rm {} \;
+    make KDIR=$KERNEL_SRC -C $BASEDIR/spi-bcm2708 install
+fi

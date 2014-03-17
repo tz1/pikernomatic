@@ -17,24 +17,37 @@ cd $BASEDIR
 
 git clone https://github.com/raspberrypi/tools.git              &
 git clone https://github.com/msperl/spi-config                  &
-git clone https://github.com/tz1/mcp2515async                   &
-git clone https://github.com/notro/spi-bcm2708.git              &
+if [ x != x$CAN ]; then
+    git clone https://github.com/tz1/mcp2515async                   &
+fi
+if [ x != x$DMASPI ]; then
+    git clone https://github.com/notro/spi-bcm2708.git              &
+fi
 
 git clone --depth 250 https://github.com/raspberrypi/linux.git
+
 #which tft if any
-git clone https://github.com/adafruit/adafruit-rpi-fbtft.git
-#git clone https://github.com/notro/fbtft.git
+if [ x != x$ADAFRUITPITFT ]; then
+    git clone https://github.com/adafruit/adafruit-rpi-fbtft.git
+    ln -sf $BASEDIR/adafruit-rpi-fbtft $KERNEL_SRC/drivers/video/fbtft
+    echo source \"drivers/video/fbtft/Kconfig\" >>$KERNEL_SRC/drivers/video/Kconfig
+    echo obj-y += fbtft/ >>$KERNEL_SRC/drivers/video/Makefile
+elif [ x != x$NOTROFBTFT ]; then
+    git clone https://github.com/notro/fbtft.git
+    ln -sf $BASEDIR/fbtft $KERNEL_SRC/drivers/video/fbtft
+    echo source \"drivers/video/fbtft/Kconfig\" >>$KERNEL_SRC/drivers/video/Kconfig
+    echo obj-y += fbtft/ >>$KERNEL_SRC/drivers/video/Makefile
+fi
 
-#adafruit-fpi-fbtft
-ln -sf $BASEDIR/adafruit-rpi-fbtft $KERNEL_SRC/drivers/video/fbtft
-echo source \"drivers/video/fbtft/Kconfig\" >>$KERNEL_SRC/drivers/video/Kconfig
-echo obj-y += fbtft/ >>$KERNEL_SRC/drivers/video/Makefile
 
+cd $KERNEL_SRC
 if [ x != x$HASH ]; then
     cd $KERNEL_SRC
     git checkout $HASH
 fi
 
-cd $KERNEL_SRC
 cp $BASEDIR/../config .config
-patch -p1 <../../moregpioirq.patch
+
+if [ x != x$MOREGPIO ]; then
+    patch -p1 <../../moregpioirq.patch
+fi

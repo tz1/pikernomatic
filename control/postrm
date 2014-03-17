@@ -1,0 +1,8 @@
+#!/bin/sh -e
+set -e
+if [ "$1" = "configure" ]; then
+	if [ -e /boot/newkernl.System.map ]; then
+		depmod -a -F /boot/newkernl.System.map || true
+	fi
+fi
+

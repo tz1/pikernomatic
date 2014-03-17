@@ -1,0 +1,14 @@
+Package: raspberrypi-bootloader-pikernomatic
+Source: raspberrypi-firmware-pikernomatic
+Conflicts: raspberrypi-bootloader
+Replaces: raspberrypi-bootloader
+Provides: raspberrypi-bootloader
+Version: 0.99
+Architecture: armhf
+Maintainer: tz1 <tz1@github.com>
+Installed-Size: 70000000
+Section: admin
+Priority: extra
+Homepage: https://github.com/raspberrypi/firmware
+Description: Raspberry Pi kernel and modules generated with various additions
+ Easy-build custom kernel trying to be as compatible with the distributed one

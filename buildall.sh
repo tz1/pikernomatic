@@ -9,8 +9,8 @@ cd $KERNEL_SRC
 make oldconfig
 make -j 5
 make modules_install
-cp arch/arm/boot/Image $BUILDOUT/boot/newkernl.img
-cp System.map $BUILDOUT/boot/newkernl.System.map
+cp arch/arm/boot/Image $BUILDOUT/boot/newkernl-$VERNAME.img
+gzip -9f <System.map >$BUILDOUT/boot/newkernl-$VERNAME.System.map.gz
 
 # Build the auxillary modules
 if [ x != x$CAN ] ; then

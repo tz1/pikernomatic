@@ -51,3 +51,10 @@ cp $BASEDIR/../config .config
 if [ x != x$MOREGPIO ]; then
     patch -p1 <../../moregpioirq.patch
 fi
+
+if [ x != x$VERNAME ]; then
+    sed -e "s/EXTRAVERSION =/& $VERNAME/" <Makefile >Makefile.fix
+    mv Makefile Makefile.orig
+    mv Makefile.fix Makefile
+fi
+cat Makefile | sed -e "s/EXTRAVERSION =/& $(VERNAME)/" >Makefile.new

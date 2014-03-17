@@ -11,3 +11,4 @@ export ADAFRUITPITFT=y
 export CAN=y
 export DMASPI=y
 export MOREGPIO=y
+export VERNAME=-tz1

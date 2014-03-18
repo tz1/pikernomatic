@@ -11,7 +11,7 @@ for i in linux spi-config mcp2515async spi-bcm2708 tools adafruit-rpi-fbtft fbtf
         cd $i
 #    git clean -X
 #restore files (undo mods to prevent pull complaints)
-        make clean
+        make KDIR=$KERNEL_SRC clean
         git checkout *
         git pull
         cd $BASEDIR

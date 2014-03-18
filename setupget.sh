@@ -31,4 +31,3 @@ if [ x != x$VERNAME ]; then
     mv Makefile Makefile.orig
     mv Makefile.fix Makefile
 fi
-cat Makefile | sed -e "s/EXTRAVERSION =/& $(VERNAME)/" >Makefile.new

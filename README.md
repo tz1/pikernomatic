@@ -8,7 +8,8 @@ Adds spi-dma, CAN for mcp2515, and Adafruilt PiTFT (stmpe-ts built but doesn't w
 Just do ./setupget.sh and wait for the downloads to complete (several in parallel).
 Then do ./buildall.sh and check the raspibuild/buildout directory for the replacements.
 
-setupget.sh creates the build directory and fetches the archives, and does a bit of setup.  
+getsource.sh creates the build directory and fetches the archives
+setupget.sh patches the fetched source (also needed after an update)
 Meant to be executed only once.
 
 update.sh will fetch any updates to the archives.

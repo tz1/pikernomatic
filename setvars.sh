@@ -28,7 +28,7 @@ export DMASPI=y
 export MOREGPIO=y
 
 # optional tag (to leave the original/stock modules directory alone)
-export VERNAME=-tz1
+#export VERNAME=-tz1
 
 #don't change these - they point to the cross tools and kernel location
 export CCDIR=$BASEDIR/tools/arm-bcm2708/arm-bcm2708-linux-gnueabi/bin

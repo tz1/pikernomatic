@@ -1,0 +1,29 @@
+HASH-HOWTO
+
+How to determine the git checkout hash for a release.
+
+First, do "uname -a" on the Pi to get the kernel version string.  There will be a #nnn followed 
+by "PREEMPT" and then a date.  Copy down or make note of this information
+
+Go to the page:
+
+https://github.com/raspberrypi/firmware/commits/master/extra/
+
+it will have a history
+
+Start with the date just before the binary release or the date in the kernel version string.
+
+Or read the string, e.g. there was an update for raspicam, so there is a matching comment.
+
+Click on the link (the comment, e.g. kernel: Bump to...).
+
+Two text files will be there, showing the diff, the rest binary and not displayed.  
+
+You can typically use search - find-in-page on the #nnn value or the date.
+
+If you match the #nnn and the date in uname_string  file (it will be on the far right so you 
+will probably have to use the horizontal scrollbar if the find doesn't bring it into view),
+the checkout hash will be the value in git_hash of the same color. (red/green are before/after).
+
+If you can't find the string, go back up one to the history and try the next (or every other) 
+date down until you find a match.

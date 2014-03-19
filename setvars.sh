@@ -10,7 +10,9 @@ export BUILDOUT=$BASEDIR/buildoutput
 #HASH=$(wget https://raw.github.com/raspberrypi/firmware/$FHASH/extra/git_hash -O -)
 
 #hash from the 3.10.25+ stock raspian kernel
-export HASH=16eb921a96db3dc3555a65b53b99c15753e6b770
+#export HASH=16eb921a96db3dc3555a65b53b99c15753e6b770
+#hash from the rpi-update for camera as of March 18, 2014
+export HASH=3bff11d4d4b8dc28cb9ce81449c989466ba27198
 
 # spi LCD support, pick neither or one
 export ADAFRUITPITFT=y

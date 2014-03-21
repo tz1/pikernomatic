@@ -9,6 +9,7 @@ cd $BASEDIR
 
 git clone https://github.com/raspberrypi/tools.git              &
 git clone https://github.com/msperl/spi-config                  &
+git clone https://github.com/tz1/gpio-pps                       &
 if [ x != x$CAN ]; then
     git clone https://github.com/tz1/mcp2515async               &
 fi

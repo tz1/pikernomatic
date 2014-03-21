@@ -32,6 +32,10 @@ Currently builds a set with small font console display (vga8x8), Adafruit PiTFT,
 
 NOTE: it might not work with all combinations, especially earlier (pre 2014) kernels.
 
+For notro's fbtft for Adafruit's pitft, replace frequency with speed, i.e. in /etc/options/fbtft.conf add:
+options fbtft_device name=pitft rotate=90 speed=32000000 fps=24
+
+
 TODO: 
 deb packaging or other to make install easier
 add new kernel as default to /boot/config.txt

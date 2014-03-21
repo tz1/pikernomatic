@@ -15,12 +15,12 @@ fi
 if [ x != x$DMASPI ]; then
     git clone https://github.com/notro/spi-bcm2708.git          &
 fi
+if [ x != x$NOTROFBTFT ]; then
+    git clone https://github.com/notro/fbtft.git
+fi
+if [ x != x$NOTROFBTFTTOOLS ]; then
+    git clone https://github.com/notro/fbtft_tools.git
+fi
 
 git clone --depth 250 https://github.com/raspberrypi/linux.git
 
-#which tft if any
-if [ x != x$ADAFRUITPITFT ]; then
-    git clone https://github.com/adafruit/adafruit-rpi-fbtft.git
-elif [ x != x$NOTROFBTFT ]; then
-    git clone https://github.com/notro/fbtft.git
-fi

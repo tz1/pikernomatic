@@ -3,12 +3,7 @@ source ./setvars.sh
 
 cd $BASEDIR
 
-#which tft if any
-if [ x != x$ADAFRUITPITFT ]; then
-    ln -sf $BASEDIR/adafruit-rpi-fbtft $KERNEL_SRC/drivers/video/fbtft
-    echo source \"drivers/video/fbtft/Kconfig\" >>$KERNEL_SRC/drivers/video/Kconfig
-    echo obj-y += fbtft/ >>$KERNEL_SRC/drivers/video/Makefile
-elif [ x != x$NOTROFBTFT ]; then
+if [ x != x$NOTROFBTFT ]; then
     ln -sf $BASEDIR/fbtft $KERNEL_SRC/drivers/video/fbtft
     echo source \"drivers/video/fbtft/Kconfig\" >>$KERNEL_SRC/drivers/video/Kconfig
     echo obj-y += fbtft/ >>$KERNEL_SRC/drivers/video/Makefile

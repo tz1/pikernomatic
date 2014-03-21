@@ -14,9 +14,9 @@ export BUILDOUT=$BASEDIR/buildoutput
 #hash from the rpi-update for camera as of March 18, 2014
 export HASH=3bff11d4d4b8dc28cb9ce81449c989466ba27198
 
-# spi LCD support, pick neither or one
-export ADAFRUITPITFT=y
-#export NOTROFBTFT=y
+# spi LCD support, and extras for PiTFT, maybe others (touchscreen, keys, backlight)
+export NOTROFBTFT=y
+export NOTROFBTFTTOOLS=y
 
 # can protocol support
 export CAN=y

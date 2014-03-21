@@ -19,3 +19,4 @@ for i in linux spi-config mcp2515async spi-bcm2708 tools fbtft fbtft_tools; do
     fi
 done
 rm -rf $BUILDOUT/*
+mkdir $BUILDOUT/boot

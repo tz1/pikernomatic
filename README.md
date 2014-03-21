@@ -9,10 +9,14 @@ Just do ./setupget.sh and wait for the downloads to complete (several in paralle
 Then do ./buildall.sh and check the raspibuild/buildout directory for the replacements.
 
 getsource.sh creates the build directory and fetches the archives
+Meant to be executed only once.  Note the --depth has been reduced to 50 since the raspicam is recent.
+To build for much older binaries, this might need to be increased.
+
 setupget.sh patches the fetched source (also needed after an update)
-Meant to be executed only once.
 
 update.sh will clean and reset the build trees then fetch any updates to the archives.
+(Note, this fails with fbtft, you need to "rm *.o" or manually reverse the symlink so it
+is at the root of the build pointing into linux/drivers/video/fbtft).
 
 buildall.sh will compile the kernel, modules, and extra modules (spi-dma, CAN, etc.).
 
@@ -32,11 +36,11 @@ Currently builds a set with small font console display (vga8x8), Adafruit PiTFT,
 
 NOTE: it might not work with all combinations, especially earlier (pre 2014) kernels.
 
-For notro's fbtft for Adafruit's pitft, replace frequency with speed, i.e. in /etc/options/fbtft.conf add:
+For notro's fbtft for Adafruit's PiTFT, replace frequency with speed, i.e. in /etc/options/fbtft.conf add:
 options fbtft_device name=pitft rotate=90 speed=32000000 fps=24
 
 
 TODO: 
 deb packaging or other to make install easier
 add new kernel as default to /boot/config.txt
-make clean fails with a symlink to the fbtft up top, so I may need to link the other way.
+add in /etc/modprobe.d or other config to go with teh modules

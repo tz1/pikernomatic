@@ -22,5 +22,5 @@ if [ x != x$NOTROFBTFTTOOLS ]; then
     git clone https://github.com/notro/fbtft_tools.git
 fi
 
-git clone --depth 250 https://github.com/raspberrypi/linux.git
+git clone --depth 50 https://github.com/raspberrypi/linux.git
 

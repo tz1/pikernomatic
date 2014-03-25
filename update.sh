@@ -6,7 +6,7 @@ export CROSS_COMPILE=$CCPREFIX
 export INSTALL_MOD_PATH=$BUILDOUT
 
 cd $BASEDIR
-for i in linux spi-config mcp2515async spi-bcm2708 tools fbtft fbtft_tools; do
+for i in linux gpio-pps spi-config mcp2515async spi-bcm2708 tools fbtft fbtft_tools; do
     if [ -d $i ]; then
         cd $i
 #    git clean -X

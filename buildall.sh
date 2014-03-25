@@ -26,6 +26,7 @@ if [ x != x$CAN ] ; then
 fi
 
 make KDIR=$KERNEL_SRC -C $BASEDIR/spi-config all install
+make KDIR=$KERNEL_SRC -C $BASEDIR/gpio-pps all install
 
 if [ x != x$DMASPI ] ; then
 #replace

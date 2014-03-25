@@ -16,7 +16,7 @@ gzip -9f <System.map >$BUILDOUT/boot/newkernl$VERNAME.System.map.gz
 # Build the auxillary modules
 if [ x != x$NOTROFBTFTTOOLS ] ; then
 # gpio_backlight_device needs a 3.12 backport - it can work using the direct GPIO instead 
-    for i in ads7846_device  gpio_keys_device  gpio_mouse_device  README.md  stmpe_device ; do
+    for i in ads7846_device  gpio_keys_device  gpio_mouse_device  stmpe_device rpi_power_switch ; do
     make KDIR=$KERNEL_SRC -C $BASEDIR/fbtft_tools/$i all install
     done
 fi

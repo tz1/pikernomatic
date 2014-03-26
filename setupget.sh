@@ -17,6 +17,10 @@ fi
 
 cp $BASEDIR/../config .config
 
+if [ x != x$FIXSTMPETS ]; then
+    patch -p1 <../../stmpe-ts.patch
+fi
+
 if [ x != x$MOREGPIO ]; then
     patch -p1 <../../moregpioirq.patch
 fi

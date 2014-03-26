@@ -1,0 +1,18 @@
+diff --git a/drivers/input/touchscreen/stmpe-ts.c b/drivers/input/touchscreen/stmpe-ts.c
+index 59e81b0..a0c89c0 100644
+--- a/drivers/input/touchscreen/stmpe-ts.c
++++ b/drivers/input/touchscreen/stmpe-ts.c
+@@ -119,6 +119,13 @@ static void stmpe_work(struct work_struct *work)
+     /* reset the FIFO before we report release event */
+     __stmpe_reset_fifo(ts->stmpe);
+ 
++       /* make sure interrupt flag FIFO_TH is cleared */
++    if (int_sta & 0b00000010) {
++        stmpe_set_bits(ts->stmpe, STMPE_REG_INT_STA, 0b11111101, 1);
++        int_sta = stmpe_reg_read(ts->stmpe, STMPE_REG_INT_STA);
++        printk("    clear interrupt flag FIFO_TH, int_sta=0x%02X\n", int_sta);
++    }
++
+     input_report_abs(ts->idev, ABS_PRESSURE, 0);
+     input_report_key(ts->idev, BTN_TOUCH, 0);
+     input_sync(ts->idev);

@@ -8,8 +8,10 @@ QUICKSTART:  Builds for current raspian distribution kernel (some kernel
 symbols may change).  Adds spi-dma, CAN for mcp2515, and Adafruilt PiTFT
 (stmpe-ts built but doesn't work, nor the reset)
 
-Just do ./setupget.sh and wait for the downloads to complete (several in
+Just do ./getsource.sh and wait for the downloads to complete (several in
 parallel).
+
+The do ./setupget.sh which does some patching
 
 Then do ./buildall.sh and check the raspibuild/buildout directory for
 the replacements.

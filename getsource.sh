@@ -8,7 +8,7 @@ mkdir $BUILDOUT/boot
 wget https://raw.githubusercontent.com/notro/rpi-build/master/patches/builtin/050-stmpe-ts-Various-fixes.patch
 cd $BASEDIR
 
-git clone https://github.com/raspberrypi/tools.git              &
+git clone --depth 1 https://github.com/raspberrypi/tools.git              &
 git clone https://github.com/msperl/spi-config                  &
 git clone https://github.com/tz1/gpio-pps                       &
 if [ x != x$CAN ]; then
@@ -25,3 +25,5 @@ if [ x != x$NOTROFBTFTTOOLS ]; then
 fi
 
 git clone --depth 100 https://github.com/raspberrypi/linux.git
+#wait until all the above are completed
+wait

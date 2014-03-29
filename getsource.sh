@@ -24,4 +24,4 @@ if [ x != x$NOTROFBTFTTOOLS ]; then
 fi
 
 git clone --depth 50 https://github.com/raspberrypi/linux.git
-
+wget https://raw.githubusercontent.com/notro/rpi-build/master/patches/builtin/050-stmpe-ts-Various-fixes.patch

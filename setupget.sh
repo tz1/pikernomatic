@@ -18,7 +18,7 @@ fi
 cp $BASEDIR/../config .config
 
 if [ x != x$FIXSTMPETS ]; then
-    patch -p1 <../../stmpe-ts.patch
+    patch -p1 <../../050-stmpe-ts-Various-fixes.patch
 fi
 
 if [ x != x$MOREGPIO ]; then

@@ -1,5 +1,5 @@
 #!/bin/sh
-source ./setvars.sh
+. ./setvars.sh
 cd $BUILDOUT
 #FATFS doesn'tn kow about perms
 chmod 755 boot/*

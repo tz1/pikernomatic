@@ -1,5 +1,5 @@
 #!/bin/sh
-source ./setvars.sh
+. ./setvars.sh
 
 mkdir $BASEDIR
 mkdir $BUILDOUT

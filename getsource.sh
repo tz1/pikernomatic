@@ -5,6 +5,7 @@ mkdir $BASEDIR
 mkdir $BUILDOUT
 mkdir $BUILDOUT/boot
 
+wget https://raw.githubusercontent.com/notro/rpi-build/master/patches/builtin/050-stmpe-ts-Various-fixes.patch
 cd $BASEDIR
 
 git clone https://github.com/raspberrypi/tools.git              &
@@ -23,5 +24,4 @@ if [ x != x$NOTROFBTFTTOOLS ]; then
     git clone https://github.com/notro/fbtft_tools.git
 fi
 
-git clone --depth 50 https://github.com/raspberrypi/linux.git
-wget https://raw.githubusercontent.com/notro/rpi-build/master/patches/builtin/050-stmpe-ts-Various-fixes.patch
+git clone --depth 100 https://github.com/raspberrypi/linux.git

@@ -3,12 +3,6 @@
 
 cd $BASEDIR
 
-if [ x != x$NOTROFBTFT ]; then
-    ln -sf $BASEDIR/fbtft $KERNEL_SRC/drivers/video/fbtft
-    echo source \"drivers/video/fbtft/Kconfig\" >>$KERNEL_SRC/drivers/video/Kconfig
-    echo obj-y += fbtft/ >>$KERNEL_SRC/drivers/video/Makefile
-fi
-
 cd $KERNEL_SRC
 if [ x != x$HASH ]; then
     cd $KERNEL_SRC
@@ -16,6 +10,13 @@ if [ x != x$HASH ]; then
 fi
 
 cp $BASEDIR/../config .config
+
+#patch Kconfig and Makefile to add fbtft
+if [ x != x$NOTROFBTFT ]; then
+    ln -sf $BASEDIR/fbtft $KERNEL_SRC/drivers/video/fbtft
+    echo source \"drivers/video/fbtft/Kconfig\" >>$KERNEL_SRC/drivers/video/Kconfig
+    echo obj-y += fbtft/ >>$KERNEL_SRC/drivers/video/Makefile
+fi
 
 if [ x != x$FIXSTMPETS ]; then
     patch -p1 <../../050-stmpe-ts-Various-fixes.patch

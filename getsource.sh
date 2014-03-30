@@ -24,6 +24,6 @@ if [ x != x$NOTROFBTFTTOOLS ]; then
     git clone https://github.com/notro/fbtft_tools.git
 fi
 
-git clone --depth 100 https://github.com/raspberrypi/linux.git
+git clone --depth $CKODEPTH https://github.com/raspberrypi/linux.git
 #wait until all the above are completed
 wait

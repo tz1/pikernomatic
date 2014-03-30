@@ -9,9 +9,13 @@ export BUILDOUT=$BASEDIR/buildoutput
 #FHASH=$(zgrep "* firmware as of" usr/share/doc/raspberrypi-bootloader/changelog.Debian.gz | head -1 | awk '{ print $5 }')
 #HASH=$(wget https://raw.github.com/raspberrypi/firmware/$FHASH/extra/git_hash -O -)
 
-#hash from the 3.10.25+ stock raspian kernel update of mid January 2014
+#default is latest kernel, need only to fetch the latest checkin
+export CKODEPTH=1
+#hash from the 3.10.25+ stock raspian kernel update of mid January 2014, uncomment next two lines
+#export CKODEPTH=1000
 #export HASH=16eb921a96db3dc3555a65b53b99c15753e6b770
-#hash from the 3.10.33+ rpi-update for camera as of March 18, 2014
+#hash from the 3.10.33+ rpi-update for camera as of March 18, 2014, uncomment next two lines
+export CKODEPTH=125
 export HASH=3bff11d4d4b8dc28cb9ce81449c989466ba27198
 
 # spi LCD support, and extras for PiTFT, maybe others (touchscreen, keys, backlight)

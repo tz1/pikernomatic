@@ -33,6 +33,15 @@ of the build pointing into linux/drivers/video/fbtft).
 buildall.sh will compile the kernel, modules, and extra modules
 (spi-dma, CAN, etc.).
 
+The result will be in raspibuild/buildout - a boot and a lib directory
+which can be copied to/over the one on the pi.  You either have to rename
+the kernel or add kernel=newkernl.img to "config.txt".  (note you can also
+put the command line into config.txt as cmdline=)
+
+See the forums and product information for instructions of making CAN or
+a TFT or other hardware work.  Additions to /etc/modules, /etc/modprobe.d,
+and other userland programs are usually needed.
+
 setvars.sh is called to set the paths, compilers, etc. and is called
 from other scripts IT MUST BE EDITED IF YOU WISH TO SELECT A DIFFERENT
 KERNEL.  If HASH is omitted, setupget will fetch the latest kernel.

@@ -36,7 +36,10 @@ buildall.sh will compile the kernel, modules, and extra modules
 The result will be in raspibuild/buildout - a boot and a lib directory
 which can be copied to/over the one on the pi.  You either have to rename
 the kernel or add kernel=newkernl.img to "config.txt".  (note you can also
-put the command line into config.txt as cmdline=)
+put the command line into config.txt as cmdline=).  After unpacking, you
+might want to do "depmod -a <version>" where version is something like
+"3.10.36+" to insure the reboot will be clean before depmod is run as part
+of the bootup.
 
 See the forums and product information for instructions of making CAN or
 a TFT or other hardware work.  Additions to /etc/modules, /etc/modprobe.d,
